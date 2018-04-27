@@ -7,7 +7,7 @@ module.exports = function(grunt){
         //watch是一个特殊的任务，它可以在目标文件保存时自动触发一系列任务的运行
         //files：[]监控哪些文件，tasks:[]触发后执行哪些任务
         watch: {
-            //livereload: true 当文件改动时，会重新启动服务
+            //每当监测到文件的变动，livereload 服务就会向浏览器发送一个信号，浏览器收到信号后就刷新页面，实现了实时刷新的效果。
             jade: {
                 files: ['views/**'],
                 options: {
@@ -52,12 +52,12 @@ module.exports = function(grunt){
         }
     })
 
-
+    // 加载插件
     grunt.loadNpmTasks('grunt-contrib-watch')
     grunt.loadNpmTasks('grunt-nodemon')
     grunt.loadNpmTasks('grunt-concurrent')
 
     grunt.option('force',true)
-    //注册 “别名任务” 或 任务函数
+    // 自定义任务
     grunt.registerTask('default',['concurrent'])
 }
