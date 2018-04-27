@@ -3,7 +3,7 @@ const Movie = require('../models/movie')
 
 
 //detail page
-exports.detail = function (req, res) {
+module.exports.detail = function (req, res) {
     let id = req.params.id
 
     Movie.findById(id, function (err, movie) {
@@ -15,7 +15,7 @@ exports.detail = function (req, res) {
 }
 
 //admin new page
-exports.new = function (req, res) {
+module.exports.new = function (req, res) {
     res.render('admin', {
         title: 'immoc后台录入页',
         movie: {
@@ -32,7 +32,7 @@ exports.new = function (req, res) {
 }
 
 //admin update movice
-exports.update = function (req, res) {
+module.exports.update = function (req, res) {
     let id = req.params.id
 
     if (id) {
@@ -46,7 +46,7 @@ exports.update = function (req, res) {
 }
 
 //admin post movice
-exports.save = function (req, res) {
+module.exports.save = function (req, res) {
     let id = req.body.movie._id
     let movieObj = req.body.movie
     let _movie
@@ -87,7 +87,7 @@ exports.save = function (req, res) {
 }
 
 //list page
-exports.list = function (req, res) {
+module.exports.list = function (req, res) {
     Movie.fetch(function (err, movies) {
         if (err) {
             console.log(err)
@@ -101,7 +101,7 @@ exports.list = function (req, res) {
 }
 
 //list delete movie
-exports.del = function (req, res) {
+module.exports.del = function (req, res) {
     var id = req.query.id
 
     if (id) {

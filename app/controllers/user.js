@@ -1,7 +1,12 @@
 var User = require('../models/user')
 
 //signup
-exports.signup = function (req, res) {
+module.exports.showSignup = function (req, res) {
+    res.render('signup', {
+        title: '注册页面'
+    })
+}
+module.exports.signup = function (req, res) {
     let _user = req.body.user
 
     User.find({ name: _user.name }, (err, user) => {
@@ -9,21 +14,26 @@ exports.signup = function (req, res) {
             console.log(err)
         }
         if (user != '') {
-            return res.redirect('/')
+            return res.redirect('/signin')
         } else {
             let user = new User(_user)
             user.save((err, user) => {
                 if (err) {
                     console.log(err)
                 }
-                res.redirect('/admin/userlist')
+                res.redirect('/')
             })
         }
     })
 }
 
 //signin
-exports.signin = (req, res) => {
+module.exports.showSignin = function (req, res) {
+    res.render('signin', {
+        title: '登录页面'
+    })
+}
+module.exports.signin = (req, res) => {
     let _user = req.body.user
     let name = _user.name
     let = password = _user.password
@@ -34,7 +44,7 @@ exports.signin = (req, res) => {
         }
 
         if (!user) {
-            return res.redirect('/')
+            return res.redirect('/signin')
         }
 
         user.comparePassword(password, (err, isMatch) => {
@@ -46,21 +56,21 @@ exports.signin = (req, res) => {
                 req.session.user = user
                 return res.redirect('/')
             } else {
-                console.log('password is not match')
+                return res.redirect('/signin')
             }
         })
     })
 }
 
 //logout
-exports.logout = (req, res) => {
+module.exports.logout = (req, res) => {
     delete req.session.user
     //delete app.locals.user
     res.redirect('/')
 }
 
 //userlist
-exports.list = function (req, res) {
+module.exports.list = function (req, res) {
     User.fetch(function (err, users) {
         if (err) {
             console.log(err)
@@ -70,5 +80,23 @@ exports.list = function (req, res) {
             users: users
         })
     })
+}
 
+//midware for user: whether signin
+module.exports.signinRequired = function (req, res, next) {
+    let user = req.session.user
+    if(!user){
+        return res.redirect('/signin')
+    }
+    next()
+}
+
+//midware for user: wheter admin
+module.exports.adminRequired = function (req, res, next) {
+    let user = req.session.user
+
+    if(user.role <= 10 || !user.role){
+        return res.redirect('/signin')
+    }
+    next()
 }
