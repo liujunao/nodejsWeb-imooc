@@ -14,13 +14,14 @@
 2. [nodejs 基本语法](http://nodejs.cn/api/) 
 3. [epxress框架](http://www.expressjs.com.cn)  [迁移到 Express 4](http://www.expressjs.com.cn/guide/migrating-4.html) 
 4. [jade 模板引擎](http://expressjs.jser.us/jade.html)  [jade视频教程](https://www.imooc.com/learn/259) 
-5. [mongodb数据库](http://www.mongoing.com)  [mongoose 数据库管理模块](http://mongoosejs.com)  [mongodb的基本操作](https://blog.csdn.net/yin__ren/article/details/80109586) 
-6. [bootstrap 前端页面框架](http://www.bootcss.com)  [jQuery 前端页面异步请求](http://jquery.cuishifeng.cn) 
-7. [grunt](https://gruntjs.com/getting-started) 
-8. [mvvm设计模式](http://minhuibing.blog.163.com/blog/static/1704738602010819114353279) 
-9. [bower简明入门教程](https://savokiss.com/tech/bower-tutorial.html) 
-10. [connect-mongo](https://github.com/jdesboeufs/connect-mongo) 
-11. [深入详解javascript之delete操作符](http://www.cnblogs.com/yuzhongwusan/archive/2012/06/14/2549879.html) 
+5. [mongodb数据库](http://www.mongoing.com)   [mongodb的基本操作](https://blog.csdn.net/yin__ren/article/details/80109586)   
+6. [mongoose 数据库管理模块](http://mongoosejs.com)   [**Mongoose学习参考文档——基础篇**](https://cnodejs.org/topic/504b4924e2b84515770103dd) [Node.js 手册查询-3-Mongoose 方法](https://cnodejs.org/topic/548e54d157fd3ae46b233502) [mongoose-schema数据表字段含义](https://blog.csdn.net/momdiy/article/details/76285369) 
+7. [bootstrap 前端页面框架](http://www.bootcss.com)  [jQuery 前端页面异步请求](http://jquery.cuishifeng.cn) 
+8. [grunt](https://gruntjs.com/getting-started) 
+9. [mvvm设计模式](http://minhuibing.blog.163.com/blog/static/1704738602010819114353279) 
+10. [bower简明入门教程](https://savokiss.com/tech/bower-tutorial.html) 
+11. [connect-mongo](https://github.com/jdesboeufs/connect-mongo) 
+12. [深入详解javascript之delete操作符](http://www.cnblogs.com/yuzhongwusan/archive/2012/06/14/2549879.html) 
 
 需要安装的相关依赖：
 
