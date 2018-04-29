@@ -2,6 +2,7 @@ const Index = require('../app/controllers/index')
 const User = require('../app/controllers/user')
 const Movie = require('../app/controllers/movie')
 const Comment = require('../app/controllers/comment')
+const Catetory = require('../app/controllers/catetory')
 
 module.exports = function (app) {
 
@@ -33,4 +34,12 @@ module.exports = function (app) {
 
     //Comment
     app.post('/user/comment', User.signinRequired, Comment.save)
+
+    //Catetory
+    app.get('/admin/catetory/new', User.signinRequired, User.adminRequired, Catetory.new)
+    app.post('/admin/catetory', User.signinRequired, User.adminRequired, Catetory.save)
+    app.get('/admin/catetory/list', User.signinRequired, User.adminRequired, Catetory.list)
+
+    //results
+    app.get('/results', Index.search)
 }

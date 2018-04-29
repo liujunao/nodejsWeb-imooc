@@ -3,44 +3,62 @@ extends ../layout
 block content 
   .container
     .row
-      form.form-horizontal(method="post", action="/admin/movie/new")
-        input(type="hidden", name="movie[_id]", value="#{movie._id}")
+      form.form-horizontal(method="post", action="/admin/movie")
+        .form-group
+          label.col-sm-5.control-label 豆瓣同步
+          .col-sm-10
+            input#douban(type="text")
         //- 隐藏表单域，用来更新电影数据，存储电影ID
+        if movie._id
+          input(name="movie[_id]", type="hidden", value=movie._id)
         .form-group
-          label.col-sm-2.control-label(for="inputTitle") 电影名称
+          label.col-sm-5.control-label(for="inputCatetory") 电影分类
           .col-sm-10
-            input#inputTitle.form-control(type="text", name="movie[title]", value="#{movie.title}")
+            input#inputCatetory.form-control(name="movie[catetoryName]", type="text", value=movie.catetoryName)
         .form-group
-          label.col-sm-2.control-label(for="inputDoctor") 电影导演
-          .col-sm-10
-            input#inputDoctor.form-control(type="text", name="movie[doctor]", value="#{movie.doctor}")
+          label.col-sm-5.control-label 分类选择
+          each cat in catetories
+            label.radio-inline
+              if movie._id
+                input(name="movie[catetory]",type="radio",value=cat._id,checked=cat._id.toString()==movie.catetory.toString()) 
+              else
+                input(name="movie[catetory]",type="radio",value=cat._id) 
+              | #{cat.name}
         .form-group
-          label.col-sm-2.control-label(for="inputCountry") 国家
+          label.col-sm-5.control-label(for="inputTitle") 电影名称
           .col-sm-10
-            input#inputCountry.form-control(type="text", name="movie[country]", value="#{movie.country}")
+            input#inputTitle.form-control(name="movie[title]", type="text", value=movie.title)
         .form-group
-          label.col-sm-2.control-label(for="inputLanguage") 语种
+          label.col-sm-5.control-label(for="inputDoctor") 电影导演
           .col-sm-10
-            input#inputLanguage.form-control(type="text", name="movie[language]", value="#{movie.language}")
+            input#inputDoctor.form-control(name="movie[doctor]", type="text", value=movie.doctor)
         .form-group
-          label.col-sm-2.control-label(for="inputPoster") 海报地址
+          label.col-sm-5.control-label(for="inputCountry") 国家
           .col-sm-10
-            input#inputPoster.form-control(type="text", name="movie[poster]", value="#{movie.poster}")
+            input#inputCountry.form-control(name="movie[country]", type="text", value=movie.country)
         .form-group
-          label.col-sm-2.control-label(for="inputFlash") 片源地址
+          label.col-sm-5.control-label(for="inputLanguage") 语种
           .col-sm-10
-            input#inputFlash.form-control(type="text", name="movie[flash]", value="#{movie.flash}")
+            input#inputLanguage.form-control(name="movie[language]", type="text", value=movie.language)
         .form-group
-          label.col-sm-2.control-label(for="inputYear") 上映年代
+          label.col-sm-5.control-label(for="inputPoster") 海报地址
           .col-sm-10
-            input#inputYear.form-control(type="text", name="movie[year]", value="#{movie.year}")
+            input#inputPoster.form-control(name="movie[poster]", type="text", value=movie.poster)
         .form-group
-          label.col-sm-2.control-label(for="inputSummary") 电影简介
+          label.col-sm-5.control-label(for="inputFlash") 片源地址
           .col-sm-10
-            textarea#inputSummary.form-control(type="text", name="movie[summary]", value="#{movie.summary}")
+            input#inputFlash.form-control(name="movie[flash]", type="text", value=movie.flash)
+        .form-group
+          label.col-sm-5.control-label(for="inputYear") 上映年代
+          .col-sm-10
+            input#inputYear.form-control(name="movie[year]", type="text", value=movie.year)
+        .form-group
+          label.col-sm-5.control-label(for="inputSummary") 电影简介
+          .col-sm-10
+            textarea#inputSummary.form-control(name="movie[summary]", type="text", value=movie.summary)
         .form-group
           .col-sm-offset-2.col-sm-10
           button.btn.btn-default(type="submit") 录入
-
+  script(src='/js/admin.js')
   
 

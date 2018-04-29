@@ -1,7 +1,7 @@
 const _ = require('underscore')
 const Movie = require('../models/movie')
+const Catetory = require('../models/catetory')
 const Comment = require('../models/comment')
-
 
 //detail page
 module.exports.detail = function (req, res) {
@@ -25,18 +25,12 @@ module.exports.detail = function (req, res) {
 
 //admin new page
 module.exports.new = function (req, res) {
-    res.render('admin', {
-        title: 'immoc后台录入页',
-        movie: {
-            title: '',
-            doctor: '',
-            country: '',
-            year: '',
-            poster: '',
-            flash: '',
-            summary: '',
-            language: ''
-        }
+    Catetory.find({}, (err, catetories) => {
+        res.render('admin', {
+            title: 'imooc后台录入页',
+            catetories: catetories,
+            movie: {}
+        })
     })
 }
 
@@ -46,9 +40,12 @@ module.exports.update = function (req, res) {
 
     if (id) {
         Movie.findById(id, function (err, movie) {
-            res.render('admin', {
-                title: 'imooc 后台更新页',
-                movie: movie
+            Catetory.find({}, (err, catetories) => {
+                res.render('admin', {
+                    title: 'imooc 后台更新页',
+                    movie: movie,
+                    catetories: catetories
+                })
             })
         })
     }
@@ -60,12 +57,11 @@ module.exports.save = function (req, res) {
     let movieObj = req.body.movie
     let _movie
 
-    if (id !== 'undefined') {
+    if (id) {
         Movie.findById(id, function (err, movie) {
             if (err) {
                 console.log(err)
             }
-
             _movie = _.extend(movie, movieObj)
             _movie.save(function (err, movie) {
                 if (err) {
@@ -75,22 +71,35 @@ module.exports.save = function (req, res) {
             })
         })
     } else {
-        _movie = new Movie({
-            doctor: movieObj.doctor,
-            title: movieObj.title,
-            country: movieObj.country,
-            language: movieObj.language,
-            year: movieObj.year,
-            poster: movieObj.poster,
-            summary: movieObj.summary,
-            flash: movieObj.flash
-        })
+        _movie = new Movie(movieObj)
+        let catetoryId = movieObj.catetory
+        let catetoryName = movieObj.catetoryName
 
         _movie.save(function (err, movie) {
             if (err) {
                 console.log(err)
             }
-            res.redirect('/movie/' + movie._id)
+
+            if (catetoryId) {
+                Catetory.findById(catetoryId, (err, catetory) => {
+                    catetory.movies.push(movie._id)
+
+                    catetory.save((err, catetory) => {
+                        res.redirect('/movie/' + movie._id)
+                    })
+                })
+            } else if (catetoryName) {
+                let catetory = new Catetory({
+                    name: catetoryName,
+                    movies: [movie._id]
+                })
+                catetory.save((err, catetory) => {
+                    movie.catetory = catetory._id
+                    movie.save((err, movie) => {
+                        res.redirect('/movie/' + movie._id)
+                    })
+                })
+            }
         })
     }
 }
