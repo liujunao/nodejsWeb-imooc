@@ -1,6 +1,7 @@
 const Index = require('../app/controllers/index')
 const User = require('../app/controllers/user')
 const Movie = require('../app/controllers/movie')
+const Comment = require('../app/controllers/comment')
 
 module.exports = function (app) {
 
@@ -29,4 +30,7 @@ module.exports = function (app) {
     app.get('/signup', User.showSignup)
     app.get('/logout', User.logout)
     app.get('/admin/userlist', User.signinRequired, User.adminRequired, User.list)
+
+    //Comment
+    app.post('/user/comment', User.signinRequired, Comment.save)
 }

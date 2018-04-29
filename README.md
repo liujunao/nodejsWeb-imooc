@@ -6,17 +6,19 @@
 
 1.  [node+mongodb 建站攻略（一期）](https://www.imooc.com/learn/75) 
 2.  [node建站攻略(二期)——网站升级](https://www.imooc.com/learn/197) 
-3. 推荐 nodejs 视频教程: [进击Node.js基础（一）](https://www.imooc.com/learn/348) [进击Node.js基础（二）](https://www.imooc.com/learn/637) 
+3.  推荐 nodejs 视频教程: [进击Node.js基础（一）](https://www.imooc.com/learn/348) [进击Node.js基础（二）](https://www.imooc.com/learn/637) 
+
+nodejs中文官网：[**Node.js专业中文社区**](https://cnodejs.org/getstart)  
 
 需要掌握的相关知识点：
 
-1. [javascript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide)   [es5](http://yanhaijing.com/es5/#book)   [es 6](http://es6.ruanyifeng.com/)   
-2. [nodejs 基本语法](http://nodejs.cn/api/) 
-3. [epxress框架](http://www.expressjs.com.cn)  [迁移到 Express 4](http://www.expressjs.com.cn/guide/migrating-4.html) 
+1. [**javascript**](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide)   [**es5**](http://yanhaijing.com/es5/#book)   [**es 6**](http://es6.ruanyifeng.com/)   
+2. [**nodejs 基本语法**](http://nodejs.cn/api/) 
+3. [**epxress框架**](http://www.expressjs.com.cn)  [**迁移到 Express 4**](http://www.expressjs.com.cn/guide/migrating-4.html) 
 4. [jade 模板引擎](http://expressjs.jser.us/jade.html)  [jade视频教程](https://www.imooc.com/learn/259) 
-5. [mongodb数据库](http://www.mongoing.com)   [mongodb的基本操作](https://blog.csdn.net/yin__ren/article/details/80109586)   
-6. [mongoose 数据库管理模块](http://mongoosejs.com)   [**Mongoose学习参考文档——基础篇**](https://cnodejs.org/topic/504b4924e2b84515770103dd) [Node.js 手册查询-3-Mongoose 方法](https://cnodejs.org/topic/548e54d157fd3ae46b233502) [mongoose-schema数据表字段含义](https://blog.csdn.net/momdiy/article/details/76285369) 
-7. [bootstrap 前端页面框架](http://www.bootcss.com)  [jQuery 前端页面异步请求](http://jquery.cuishifeng.cn) 
+5. [mongodb数据库](http://www.mongoing.com)   [**mongodb的基本操作**](https://blog.csdn.net/yin__ren/article/details/80109586)   
+6. [mongoose 数据库管理模块](http://mongoosejs.com)   [**Mongoose学习参考文档——基础篇**](https://cnodejs.org/topic/504b4924e2b84515770103dd) [**Node.js 手册查询-3-Mongoose 方法**](https://cnodejs.org/topic/548e54d157fd3ae46b233502) [**Mongoose Guide**](https://cnodejs.org/topic/5206581b44e76d216aae072e)   [mongoose-schema数据表字段含义](https://blog.csdn.net/momdiy/article/details/76285369) 
+7. [**bootstrap 前端页面框架**](http://www.bootcss.com)  [**jQuery 前端页面异步请求**](http://jquery.cuishifeng.cn) 
 8. [grunt](https://gruntjs.com/getting-started) 
 9. [mvvm设计模式](http://minhuibing.blog.163.com/blog/static/1704738602010819114353279) 
 10. [bower简明入门教程](https://savokiss.com/tech/bower-tutorial.html) 

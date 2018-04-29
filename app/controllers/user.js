@@ -9,7 +9,7 @@ module.exports.showSignup = function (req, res) {
 module.exports.signup = function (req, res) {
     let _user = req.body.user
 
-    User.find({ name: _user.name }, (err, user) => {
+    User.findOne({ name: _user.name }, (err, user) => {
         if (err) {
             console.log(err)
         }
