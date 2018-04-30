@@ -19,9 +19,9 @@ nodejs中文官网：[**Node.js专业中文社区**](https://cnodejs.org/getstar
 5. [mongodb数据库](http://www.mongoing.com)   [**mongodb的基本操作**](https://blog.csdn.net/yin__ren/article/details/80109586)   
 6. [mongoose 数据库管理模块](http://mongoosejs.com)   [mongoose-schema数据表字段含义](https://blog.csdn.net/momdiy/article/details/76285369) 
 7. -  [**Mongoose学习参考文档——基础篇**](https://cnodejs.org/topic/504b4924e2b84515770103dd)
-   - [**Mongoose Guide**](https://cnodejs.org/topic/5206581b44e76d216aae072e) 
-   - [**Mongoose 之 Population 使用**](https://segmentfault.com/a/1190000002727265) 
-   - [**Node.js 手册查询-3-Mongoose 方法**](https://cnodejs.org/topic/548e54d157fd3ae46b233502)
+   -  [**Mongoose Guide**](https://cnodejs.org/topic/5206581b44e76d216aae072e) 
+   -  [**Mongoose 之 Population 使用**](https://segmentfault.com/a/1190000002727265) 
+   -  [**Node.js 手册查询-3-Mongoose 方法**](https://cnodejs.org/topic/548e54d157fd3ae46b233502)
 8. [**bootstrap 前端页面框架**](http://www.bootcss.com)  [**jQuery 前端页面异步请求**](http://jquery.cuishifeng.cn) 
 9. [grunt](https://gruntjs.com/getting-started) 
 10. [mvvm设计模式](http://minhuibing.blog.163.com/blog/static/1704738602010819114353279) 
@@ -29,6 +29,7 @@ nodejs中文官网：[**Node.js专业中文社区**](https://cnodejs.org/getstar
 12. [connect-mongo](https://github.com/jdesboeufs/connect-mongo) 
 13. [深入详解javascript之delete操作符](http://www.cnblogs.com/yuzhongwusan/archive/2012/06/14/2549879.html) 
 14. [豆瓣开发者api](https://developers.douban.com/wiki/?title=movie_v2) 
+15. [grunt-mocha-test.js](https://github.com/pghalliday/grunt-mocha-test)   [Should.js API](http://shouldjs.github.io/)  
 
 需要安装的相关依赖：
 
@@ -55,5 +56,9 @@ nodejs中文官网：[**Node.js专业中文社区**](https://cnodejs.org/getstar
 18. npm install express-session --save
 19. npm install connect-mongo --save
 20. npm install morgan --save
+21. npm install connect-multiparty --save
+22. npm install grunt-mocha-test --save
+23. npm install mocha --save
+24. npm install should --save
 ```
 

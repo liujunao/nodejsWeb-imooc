@@ -2,11 +2,18 @@ const _ = require('underscore')
 const Movie = require('../models/movie')
 const Catetory = require('../models/catetory')
 const Comment = require('../models/comment')
+const fs = require('fs')
+const path = require('path')
 
 //detail page
 module.exports.detail = function (req, res) {
     let id = req.params.id
 
+    Movie.update({ _id: id }, { $inc: { pv: 1 } }, (err) => {
+        if (err) {
+            console.log(err)
+        }
+    })
     Movie.findById(id, function (err, movie) {
         Comment
             .find({ movie: id })
@@ -51,11 +58,39 @@ module.exports.update = function (req, res) {
     }
 }
 
+//admin savePoster
+module.exports.savePoster = function (req, res, next) {
+    console.log(req.files)
+    let posterData = req.files.uploadPoster
+    let filePath = posterData.path
+    let originalFilename = posterData.originalFilename
+
+    if (originalFilename) {
+        fs.readFile(filePath, (err, data) => {
+            let timestamp = Date.now()
+            let type = posterData.type.split('/')[1]
+            let poster = timestamp + '.' + type
+            let newPath = path.join(__dirname, '../../', '/public/upload/' + poster)
+
+            fs.writeFile(newPath, data, (err) => {
+                req.poster = poster
+                next()
+            })
+        })
+    } else {
+        next()
+    }
+}
+
 //admin post movice
 module.exports.save = function (req, res) {
     let id = req.body.movie._id
     let movieObj = req.body.movie
     let _movie
+
+    if (req.poster) {
+        movieObj.poster = req.poster
+    }
 
     if (id) {
         Movie.findById(id, function (err, movie) {
@@ -110,6 +145,7 @@ module.exports.list = function (req, res) {
         if (err) {
             console.log(err)
         }
+        console.log('movies: ' + movies)
         res.render('list', {
             title: 'immoc列表页',
             movies: movies

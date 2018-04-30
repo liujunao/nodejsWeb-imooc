@@ -4,6 +4,9 @@ const Movie = require('../app/controllers/movie')
 const Comment = require('../app/controllers/comment')
 const Catetory = require('../app/controllers/catetory')
 
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
+
 module.exports = function (app) {
 
     //pre handler
@@ -18,7 +21,7 @@ module.exports = function (app) {
 
     //Movie
     app.get('/movie/:id', Movie.detail)
-    app.post('/admin/movie', User.signinRequired, User.adminRequired, Movie.save)
+    app.post('/admin/movie',multipartMiddleware , User.signinRequired, User.adminRequired, Movie.save)
     app.get('/admin/movie/update/:id', User.signinRequired, User.adminRequired, Movie.update)
     app.get('/admin/movie/new', User.signinRequired, User.adminRequired, Movie.new)
     app.get('/admin/movie/list', User.signinRequired, User.adminRequired, Movie.list)
